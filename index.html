@@ -1,0 +1,17 @@
+{% extends "blogs/base.html" %}
+{% block header %}
+  <div class='jumbotron'>
+    <h1>Track your blog.</h1>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  <h2>
+    <a href="{% url 'users:register' %}">Register an account</a> to make
+    your own Blog, and list the blogposts you're blogging about.
+  </h2>
+  <h2>
+    Whenever you want to write something new about a blogpost, make a post
+    summarizing what you've blogged.
+  </h2>
+{% endblock content %}
