@@ -1,6 +1,7 @@
+# this code acts the same as the login, topic, topics page
 {% extends "blogs/base.html" %}
-{% load bootstrap3 %}
-{% block header %}
+{% load bootstrap3 %} # we load the bootstrap3 template tags into this template
+{% block header %} # we define the header block, which describes what the page is for
 <h2>
   {{ blogpost }}<br/>
   <small>
@@ -14,7 +15,7 @@
  {% csrf_token %}
  {% bootstrap_form form %}
 
- {% buttons %}
+ {% buttons %} # we open a bootstrap3 template tag #{% buttons %},which adds Bootstrap styling to buttons
  <button name='submit' class="btn btn-primary">Add post</button>
  {% endbuttons %}
 </form>
