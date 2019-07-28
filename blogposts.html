@@ -1,6 +1,6 @@
-{% extends "blogs/base.html" %}
+{% extends "blogs/base.html" %} # start by using the #{% extends %} tag to inherit from # base.html, just as the index template does, and then open a content block # body of this page contains a bulleted list of the blogposts that have been entered
 
-{% block header %}
+{% block header %} # add the heading BlogPosts inside the header block
   <h1>BlogPosts</h1>
 {% endblock header %}
 
@@ -9,7 +9,7 @@
   <ul>
     {% for blogpost in blogposts %}
       <li>
-      <h3>
+      <h3> # We style each blogpost as an #<h3> element to make them a little larger on the page
         <a href="{% url 'blogs:blogpost' blogpost.id %}">{{ blogpost }}</a>
       </h3>
       </li>
@@ -18,7 +18,7 @@
     {% endfor %}
   </ul>
 
-  <h3><a href="{% url 'blogs:new_blogpost' %}">Add new blogpost</h3>
+  <h3><a href="{% url 'blogs:new_blogpost' %}">Add new blogpost</h3> # and do the same for the link to add a new blogpost
 
 {% endblock content %}
 
