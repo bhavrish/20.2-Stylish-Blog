@@ -9,53 +9,53 @@
 
   <title>Blog</title> # we include a title element for the page, which will be displayed in the title bar of the browser whenever Blog is open
 
-  {% bootstrap_css %}
+  {% bootstrap_css %} # use one of django-bootstrap3’s custom template tags, which tells Django to include all the Bootstrap style files # The tag that follows enables all the interactive behavior you might use on a page, such as collapsible navigation bars
   {% bootstrap_javascript %}
   
- </head>
+ </head> # it the closing head tag
 
-  <body>
+  <body> # The first element is the opening body tag # body of an HTML file contains the content users will see on a page
 
     <!-- Static navbar -->
     
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top"> # indicates the navigation links section of the page # Everything contained in this element is styled according to the Bootstrap style rules defined by the selectors navbar, navbar-default, and navbar-static-top # A selector determines which elements on a page a certain style rule applies to
       <div class="container">
      
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed"
               data-toggle="collapse" data-target="#navbar"
-              aria-expanded="false" aria-controls="navbar">
+              aria-expanded="false" aria-controls="navbar"> # the template defines a button that will appear if the browser window is too narrow to display the whole navigation bar horizontally # When the user clicks the button, the navigation elements will appear in a dropdown list # The collapse reference causes the navigation bar to collapse when the user shrinks the browser window or when the site is displayed on mobile devices with small screens
           </button>
           <a class="navbar-brand" href="{% url 'blogs:index' %}">
-              Blog</a>
+              Blog</a> #  we set the project’s name to appear at the far left of the navigation bar and make it a link to the home page, because it will appear on every page in the project
       </div>
      
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-      <li><a href="{% url 'blogs:blogposts' %}">BlogPosts</a></li>
+      <div id="navbar" class="navbar-collapse collapse"> # we define a set of links that lets users navigate the site
+        <ul class="nav navbar-nav"> # A navigation bar is basically a list that starts with # <ul>
+      <li><a href="{% url 'blogs:blogposts' %}">BlogPosts</a></li> # each link is an item in this list #(<li>)
       </ul>
      
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right"> # we place a second list of navigation links, this time using the selector navbar-right # The navbar-right selector styles the set of links so it appears at the right edge of the navigation bar where you typically see login and registration links # Here we’ll display the user greeting and logout link or links to register or log in
         {% if user.is_authenticated %}
           <li><a>Hello, {{ user.username }}.</a></li>
           <li><a href="{% url 'users:logout' %}">log out</a></li>
         {% else %}
           <li><a href="{% url 'users:register' %}">register</a></li>
           <li><a href="{% url 'users:login' %}">log in</a></li>
-        {% endif %}
-      </ul>
+        {% endif %} 
+      </ul> # # rest of the code in this section closes out the elements that contain the navigation bar
     </div><!--/.nav-collapse -->
      
    </div>
   </nav>
 
-  <div class="container">
+  <div class="container"> # A div is a section of a web page that can be used for any purpose and can be styled with a border, space around the element, space between the contents and the border, background colors, and other style rules # This particular div acts as a container into which we place two elements: 
 
     <div class="page-header">
-      {% block header %}{% endblock header %}
+      {% block header %}{% endblock header %} # div acts as a container into which we place two elements: a new block called header
     </div>
     <div>
-      {% block content %}{% endblock content %}
+      {% block content %}{% endblock content %} # his particular div acts as a container into which we place two elements: a new block called header and the content block 
     </div>
 
   </div> <!-- /container -->
