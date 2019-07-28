@@ -1,6 +1,6 @@
-{% extends 'blogs/base.html' %}
+{% extends 'blogs/base.html' %} # We extend # base.html, as we do for all pages in the project
 
-{% block header %}
+{% block header %} # place the blogpost in the header block # We then deleted the unordered list structure previously used in this template
   <h2>{{ blogpost }}</h2>
 {% endblock header %}
 
@@ -10,17 +10,17 @@
   </p>
 
   {% for post in posts %}
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="panel panel-default"> # Instead of making each post a list item, we create a panel div element
+      <div class="panel-heading"> # The panel-heading div contains the date for the post and the link to edit the post
         <h3>
           {{ post.date_added|date:'M d, Y H:i' }}
           <small>
             <a href="{% url 'blogs:edit_post' post.id %}">
               edit post</a>
-          </small>
+          </small> # add this around edit post link to make it a little smaller than the timestamp
         </h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-body"> # this contains contains the actual text of the post
         {{ post.text|linebreaks }}
       </div>
     </div> <!-- panel -->
@@ -29,3 +29,4 @@
   {% endfor %}
 
 {% endblock content %}
+# what this entire code does is that it makes the elements look more professional
