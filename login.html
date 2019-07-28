@@ -11,11 +11,11 @@
    {% csrf_token %}
    {% bootstrap_form form %} # we display the form 
 
-   {% buttons %}
+   {% buttons %} # we open a bootstrap3 template tag #{% buttons %},which adds Bootstrap styling to buttons
      <button name="submit" class="btn btn-primary">log in</button>
    {% endbuttons %}
     
-   <input type="hidden" name="next" value="{% url 'blogs:index' %}" />
+   <input type="hidden" name="next" value="{% url 'blogs:index' %}" /> # include a hidden form element, # 'next'; the value argument tells Django where to redirect the user after they’ve logged in successfully # In this case, we send the user back to the home page
  </form>
     
 {% endblock content %}
