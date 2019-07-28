@@ -1,7 +1,8 @@
+# most of the changes are similar to the index html
 {% extends "blogs/base.html" %}
 {% load bootstrap3 %}
 
-{% block header %}
+{% block header %} # we load bootstrap3 and add the header block with an appropriate message 
   <h2>Add a new blogpost:</h2>
 {% endblock header %}
 
@@ -13,7 +14,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
 
-    {% buttons %}
+    {% buttons %} # use the bootstrap3 structure for the submit button # Log in and navigate to the #new_blogpost page; it should look similar to the login page now
       <button name="submit" class="btn btn-primary">add blogpost</button>
     {% endbuttons %}
 
