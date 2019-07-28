@@ -1,17 +1,18 @@
-{% extends "blogs/base.html" %}
-{% load bootstrap3 %}
-{% block header %}
+# code is similar to the login, blogposts, blogpost code 
+{% extends "blogs/base.html" %} # extend # base.html, as we do for all pages in the project
+{% load bootstrap3 %} # we load the bootstrap3 template tags into this template
+{% block header %} # we define the header block, which describes what the page is for
 <h2>Register an account</h2>
 {% endblock header %}
 
 {% block content %}
-<form method="post" action="{% url 'users:register' %}" class="form">
+<form method="post" action="{% url 'users:register' %}" class="form"> # add the class form attribute
   {% csrf_token %}
-  {% bootstrap_form form %}
+  {% bootstrap_form form %} we display the form
 
-  {% buttons %}
+  {% buttons %} # we open a bootstrap3 template tag #{% buttons %},which adds Bootstrap styling to buttons
   <button name="submit" class="btn btn-primary">Register</button>
   {% endbuttons %}
-  <input type="hidden" name="next" value="{% url 'blogs:blogposts' %}"/>
+  <input type="hidden" name="next" value="{% url 'blogs:blogposts' %}"/> # include a hidden form element
 </form>
 {% endblock content %}
